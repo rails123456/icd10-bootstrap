@@ -1,0 +1,17 @@
+<%= simple_form_for @block, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Block</legend>
+
+    <%= f.association :chapter, 
+                      :collection => Chapter.order(:id), 
+                      :label_method => lambda { |ch| "#{ch.chap_no} : #{ch.chap_title}" },
+                      :prompt => "Choose a chapter" %>
+    <%= f.input :block_no %>
+    <%= f.input :block_title %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', blocks_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

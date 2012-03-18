@@ -1,0 +1,17 @@
+<h1>/Chapter</h1>
+
+<p>
+  <b>Chapter No</b><br>
+  <%= @chapter.chap_no %>
+</p>
+
+<p>
+  <b>Chapter title</b><br>
+  <%= @chapter.chap_title %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', chapters_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_chapter_path(@chapter), :class => 'btn' %>
+  <%= link_to 'Delete', chapter_path(@chapter), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

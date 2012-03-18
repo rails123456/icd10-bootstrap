@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  chapter_id: 1
+  block_no: MyString
+  block_title: MyString
+
+two:
+  chapter_id: 1
+  block_no: MyString
+  block_title: MyString

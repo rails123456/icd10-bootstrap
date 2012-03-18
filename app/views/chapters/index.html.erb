@@ -1,0 +1,29 @@
+<h1>Chapters</h1>
+
+<%= paginate @chapters %>
+<p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Chapter No</th>
+      <th>Chapter Title</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @chapters.each do |chapter| %>
+      <tr>
+        <td><%= chapter.id %></td>
+        <td><%= link_to chapter.chap_no, chapter_path(chapter) %></td>
+        <td><%= chapter.chap_title %></td>
+        <td>
+          <%= link_to 'Edit', edit_chapter_path(chapter), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', chapter_path(chapter), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_chapter_path, :class => 'btn btn-primary' %>

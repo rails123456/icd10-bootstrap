@@ -1,0 +1,13 @@
+<%= simple_form_for @chapter, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Chapter</legend>
+
+    <%= f.input :chap_no %>
+    <%= f.input :chap_title %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', chapters_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
