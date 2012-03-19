@@ -1,0 +1,24 @@
+<h1>Codes</h1>
+
+<%= paginate @codes %>
+<p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Block</th>
+      <th>Code 6</th>
+      <th>Code Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @codes.each do |code| %>
+      <tr>
+        <td><%= link_to code.block.block_title, code_path(code) %></td>
+        <td><%= code.code_6 %></td>
+        <td><%= code.code_title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%# link_to 'New', new_code_path, :class => 'btn btn-primary' %>

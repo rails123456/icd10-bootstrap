@@ -1,0 +1,22 @@
+<h1>/Faq</h1>
+
+<p>
+  <b>Faq item</b><br>
+  <%= @faq.faq_item %>
+</p>
+
+<p>
+  <b>Faq q</b><br>
+  <%= @faq.faq_q %>
+</p>
+
+<p>
+  <b>Faq a</b><br>
+  <%= @faq.faq_a %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', faqs_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_faq_path(@faq), :class => 'btn' %>
+  <%= link_to 'Delete', faq_path(@faq), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

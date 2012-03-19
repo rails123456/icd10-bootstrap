@@ -1,0 +1,18 @@
+<%= simple_form_for @code, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Code</legend>
+
+    <%= f.association :block,
+                      :collection => Block.order(:id),
+                      :label_method => lambda { |b| "#{b.block_no} : #{b.block_title}" },
+                      :prompt => "Choose a block" %>
+    <%= f.input :code_3, :label => "ICD 3 digits" %>
+    <%= f.input :code_6, :label => "ICD 6 digits" %>
+    <%= f.input :code_title %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', codes_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

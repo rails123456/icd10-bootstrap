@@ -2,7 +2,7 @@ class BlocksController < ApplicationController
   # GET /blocks
   # GET /blocks.json
   def index
-    @blocks = Block.page(params[:page]).per(10).order(:id)
+    @blocks = Block.search(params[:q]).page(params[:page]).order(:id)
 
     respond_to do |format|
       format.html # index.html.erb

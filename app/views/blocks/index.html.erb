@@ -5,27 +5,20 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Chapter</th>
       <th>Block No</th>
       <th>Block Title</th>
-      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @blocks.each do |block| %>
       <tr>
-        <td><%= block.id %></td>
         <td><%= link_to block.chapter_id, block_path(block) %></td>
         <td><%= block.block_no %></td>
         <td><%= block.block_title %></td>
-        <td>
-          <%= link_to 'Edit', edit_block_path(block), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', block_path(block), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_block_path, :class => 'btn btn-primary' %>
+<%# link_to 'New', new_block_path, :class => 'btn btn-primary' %>

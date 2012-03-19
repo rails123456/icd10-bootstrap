@@ -10,17 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120318153009) do
+ActiveRecord::Schema.define(:version => 20120319110139) do
 
   create_table "blocks", :force => true do |t|
     t.integer "chapter_id"
-    t.string  "block_no"
+    t.string  "block_no",    :limit => 7
     t.string  "block_title"
   end
 
   create_table "chapters", :force => true do |t|
     t.string "chap_no",    :limit => 2
     t.string "chap_title", :limit => 110
+  end
+
+  create_table "codes", :force => true do |t|
+    t.integer "block_id"
+    t.string  "code_3",     :limit => 3
+    t.string  "code_6",     :limit => 6
+    t.string  "code_title"
+  end
+
+  create_table "faqs", :force => true do |t|
+    t.string "faq_item"
+    t.string "faq_q"
+    t.string "faq_a"
   end
 
 end

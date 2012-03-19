@@ -20,3 +20,6 @@ gem 'mongrel'
 gem 'kaminari'
 
 gem 'simple_form'
+
+gem 'yaml_db'
+

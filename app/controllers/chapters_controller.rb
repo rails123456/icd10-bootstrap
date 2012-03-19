@@ -2,7 +2,7 @@ class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.json
   def index
-    @chapters = Chapter.page(params[:page]).per(10).order(:id)
+    @chapters = Chapter.search(params[:q]).page(params[:page]).order(:id)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  block_id: 1
+  code_3: MyString
+  code_6: MyString
+  code_title: MyString
+
+two:
+  block_id: 1
+  code_3: MyString
+  code_6: MyString
+  code_title: MyString

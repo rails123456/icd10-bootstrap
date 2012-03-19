@@ -1,0 +1,27 @@
+<h1>/Code</h1>
+
+<p>
+  <b>Block</b><br>
+  <%= @code.block_id %>
+</p>
+
+<p>
+  <b>Code 3</b><br>
+  <%= @code.code_3 %>
+</p>
+
+<p>
+  <b>Code 6</b><br>
+  <%= @code.code_6 %>
+</p>
+
+<p>
+  <b>Code title</b><br>
+  <%= @code.code_title %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', codes_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_code_path(@code), :class => 'btn' %>
+  <%= link_to 'Delete', code_path(@code), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

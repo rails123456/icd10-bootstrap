@@ -22,8 +22,15 @@
       <a class="brand" href="#">ICD10Forum</a>
       <div class="nav-collapse">
         <ul class="nav">
+          <li><%= link_to "FAQs", faqs_path %></li>
           <li><%= link_to "Chapters", chapters_path %></li>
           <li><%= link_to "Blocks", blocks_path %></li>
+          <li><%= link_to "Codes", codes_path %></li>
+        </ul>
+        <ul class="nav pull-right">
+          <form class="navbar-search" id="search">
+            <input type="text" id="q" class="search-query span3" placeholder="Search">
+          </form>
         </ul>
       </div>
     </div>
@@ -33,16 +40,16 @@
 <div class="container">
   <% flash.each do |name, msg| %>
     <div class="alert alert-<%= name == :notice ? 'success' : 'error' %>">
-      <a class="close" data-dismiss="alert">x</a>
+      <a class="close" data-dismiss="alert">&times;</a>
       <%= msg %>
     </div>
   <% end %>
   <div class="row">
-    <div class="span9">
+    <div class="span10">
       <%= yield %>
     </div>
 
-    <div class="span3">
+    <div class="span2">
       <h2>Sidebar</h2>
       This is sidebar of icd10forum
     </div>

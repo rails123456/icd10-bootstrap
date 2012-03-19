@@ -1,0 +1,24 @@
+<h1>Faqs</h1>
+
+<%= paginate @faqs %>
+<p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Faq ID</th>
+      <th>Questions</th>
+      <th>Answers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @faqs.each do |faq| %>
+      <tr>
+        <td><%= link_to faq.faq_item, faq_path(faq) %></td>
+        <td><%= faq.faq_q %></td>
+        <td><%= faq.faq_a %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%# link_to 'New', new_faq_path, :class => 'btn btn-primary' %>
