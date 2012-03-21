@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  qa_q: MyString
+  qa_a: MyString
+  qa_status: MyString
+
+two:
+  user_id: 1
+  qa_q: MyString
+  qa_a: MyString
+  qa_status: MyString

@@ -1,0 +1,27 @@
+<h1>/Qanda</h1>
+
+<p>
+  <b>User</b><br>
+  <%= @qanda.user_id %>
+</p>
+
+<p>
+  <b>Qa q</b><br>
+  <%= @qanda.qa_q %>
+</p>
+
+<p>
+  <b>Qa a</b><br>
+  <%= @qanda.qa_a %>
+</p>
+
+<p>
+  <b>Qa status</b><br>
+  <%= @qanda.qa_status %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', qandas_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_qanda_path(@qanda), :class => 'btn' %>
+  <%= link_to 'Delete', qanda_path(@qanda), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

@@ -1,0 +1,34 @@
+<h1>Qandas</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>สมาชิก</th>
+      <th>คำถาม</th>
+      <% if current_user.role == 'admin' %>
+        <th>คำตอบ</th>
+        <th>สถานะ</th>
+      <% end %>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @qandas.each do |qanda| %>
+      <tr class="<%= qanda.qa_status %>">
+        <td><%= qanda.id %></td>
+        <td><%= link_to qanda.user.email, qanda_path(qanda) %></td>
+        <td><%= qanda.qa_q %></td>
+        <% if current_user.role == 'admin' %>
+          <td><%= qanda.qa_a %></td>
+          <td><%= qanda.qa_status %></td>
+        <% end %>
+        <td>
+          <%= link_to 'Edit', edit_qanda_path(qanda), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', qanda_path(qanda), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_qanda_path, :class => 'btn btn-primary' %>

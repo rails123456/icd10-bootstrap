@@ -30,3 +30,16 @@ body { padding: 20px; }
 .search-query:focus + .icon-search {
     background-image: url("http://twitter.github.com/bootstrap/assets/img/glyphicons-halflings.png");
 }
+
+.unassinged {
+  color: red;
+}
+
+.consulting {
+  color: yellow;
+}
+
+.answered {
+  color: lightgreen;
+}
+

@@ -1,0 +1,23 @@
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /User</legend>
+
+    <%= f.input :email %>
+    <%= f.input :prename %>
+    <%= f.input :fname %>
+    <%= f.input :lname %>
+    <%= f.input :mobile %>
+    <%= f.input :role,
+                :as => :select,
+                :collection => ['member','consultant','admin'],
+                :label => 'สถานะ'
+    %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', users_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

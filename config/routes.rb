@@ -7,6 +7,7 @@ Icd10forum::Application.routes.draw do
   resources :users
   resources :sessions
 
+  resources :qandas
   resources :faqs
   resources :codes
   resources :blocks

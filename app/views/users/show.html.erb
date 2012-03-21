@@ -1,0 +1,32 @@
+<h1>สมาชิก</h1>
+
+<p>
+  <b>User</b><br>
+  <%= @user.user_id %>
+</p>
+
+<p>
+  <b>Email</b><br>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>ชื่อ-นามสกุล</b><br>
+  <%= @user.fullname %>
+</p>
+
+<p>
+  <b>Mobile</b><br>
+  <%= @user.mobile %>
+</p>
+
+<p>
+  <b>Role</b><br>
+  <%= @user.role %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', users_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_user_path(@qanda), :class => 'btn' %>
+  <%= link_to 'Delete', user_path(@qanda), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

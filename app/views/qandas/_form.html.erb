@@ -1,0 +1,40 @@
+<%= simple_form_for @qanda, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Qanda</legend>
+
+    <%= f.association :user, 
+                      :label => "Email",
+                      :collection => User.find(current_user),
+                      :label_method => lambda { |u| "#{u.email}" },
+                      :selected => current_user.id,
+                      :readonly => true
+    %>
+    <%= f.input :qa_q,
+                :label => "คำถาม",
+                :as => :text,
+                :input_html => { :rows => 4, :cols => 100, :class => 'resizable' }
+     %>
+     <% if current_user.role == 'admin' %>
+       <%= f.input :qa_a,
+                :label => "คำตอบ",
+                :as => :text,
+                :input_html => { :rows => 2, :cols => 200, :class => 'resizable' }
+       %>
+       <%= f.input :qa_status,
+                   :as => :select,
+                   :collection => ['unassigned','consulting', 'answered'],
+                   :label => "สถานะ"
+        %>
+    <% else %>
+      <%= f.input :qa_status,
+                  :as => :hidden,
+                  :input_html => { :value => 'unassigned' }
+      %>
+    <% end %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', qandas_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
