@@ -14,26 +14,26 @@ ActiveRecord::Schema.define(:version => 20120321082839) do
 
   create_table "blocks", :force => true do |t|
     t.integer "chapter_id"
-    t.string  "block_no",    :limit => 7
+    t.string  "block_no"
     t.string  "block_title"
   end
 
   create_table "chapters", :force => true do |t|
-    t.string "chap_no",    :limit => 2
-    t.string "chap_title", :limit => 110
+    t.string "chap_no"
+    t.string "chap_title"
   end
 
   create_table "codes", :force => true do |t|
     t.integer "block_id"
-    t.string  "code_3",     :limit => 3
-    t.string  "code_6",     :limit => 6
+    t.string  "code_3"
+    t.string  "code_6"
     t.string  "code_title"
   end
 
   create_table "faqs", :force => true do |t|
     t.string "faq_item"
-    t.string "faq_q",    :limit => 2048
-    t.string "faq_a",    :limit => 2048
+    t.text   "faq_q"
+    t.text   "faq_a"
   end
 
   create_table "qandas", :force => true do |t|

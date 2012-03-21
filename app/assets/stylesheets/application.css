@@ -43,3 +43,15 @@ body { padding: 20px; }
   color: lightgreen;
 }
 
+.admin {
+  background-color: #f00;
+}
+
+.member {
+  background-color: #050;
+}
+
+.consultant {
+  background-color: #00f;
+}
+

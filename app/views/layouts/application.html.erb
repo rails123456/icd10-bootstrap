@@ -24,33 +24,46 @@
         <ul class="nav">
           <% if current_user %>
             <% if admin? %>
+              <li class="divider-vertical"></li>
               <li><%= link_to "สมาชิก", users_path %></li>
             <% end %>
+            <li class="divider-vertical"></li>
             <li><%= link_to "Q&A", qandas_path %></li>
           <% end %>
+          <li class="divider-vertical"></li>
           <li><%= link_to "FAQs", faqs_path %></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              ICD10 Codes
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Chapters", chapters_path %></li>
-              <li><%= link_to "Blocks", blocks_path %></li>
-              <li><%= link_to "Codes", codes_path %></li>
-            </ul>
-          </li>
+          <% if current_user && !admin? %>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                ICD10 Codes
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Chapters", chapters_path %></li>
+                <li><%= link_to "Blocks", blocks_path %></li>
+                <li><%= link_to "Codes", codes_path %></li>
+              </ul>
+            </li>
+          <% end %>
+          <li class="divider-vertical"></li>
           <form class="navbar-search" id="search">
             <input type="text" id="q" class="search-query span3" placeholder="Search">
           </form>
         </ul>
         <ul class="nav pull-right">
-          <li class="divider-vertical"></li>
           <% if current_user %>
-            <li><%= link_to "ยินดีต้อนรับ #{current_user.prename}#{current_user.fname} #{current_user.lname}", "#" %></li>
-            <li class="divider-vertical"></li>
+            <% if admin? %>
+              <li class="admin">
+            <% else %>
+              <li class="member">
+            <% end %>
+              <%= link_to "ยินดีต้อนรับ #{current_user.fullname}", "#" %>
+            </li>
+            <!-- li class="divider-vertical"></li //-->
             <li><%= link_to "Logout", logout_path %></li>
           <% else %>
+            <li class="divider-vertical"></li>
             <li><%= link_to "Register", signup_path %></li>
             <li class="divider-vertical"></li>
             <li><%= link_to "Login", login_path %></li>
