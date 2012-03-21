@@ -1,10 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
-
 gem 'pg'
-
 gem 'json'
+gem 'bcrypt-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
@@ -14,12 +13,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
 gem 'mongrel'
-
 gem 'kaminari'
-
 gem 'simple_form'
-
 gem 'yaml_db'
-
