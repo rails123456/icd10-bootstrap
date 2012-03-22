@@ -1,6 +1,6 @@
 <%= simple_form_for @qanda, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> /Qanda</legend>
+    <legend><%= controller.action_name.capitalize %> &gt; Q&A</legend>
 
     <%= f.association :user, 
                       :label => "Email",
@@ -12,19 +12,24 @@
     <%= f.input :qa_q,
                 :label => "คำถาม",
                 :as => :text,
-                :input_html => { :rows => 4, :cols => 100, :class => 'resizable' }
+                :input_html => { :rows => 5, :style => "width:500px" }
      %>
      <% if current_user.role == 'admin' %>
        <%= f.input :qa_a,
                 :label => "คำตอบ",
                 :as => :text,
-                :input_html => { :rows => 2, :cols => 200, :class => 'resizable' }
+                :input_html => { :rows => 5, :style => "width:500px" }
        %>
        <%= f.input :qa_status,
                    :as => :select,
                    :collection => ['unassigned','consulting', 'answered'],
                    :label => "สถานะ"
-        %>
+       %>
+       <%= f.input :qa_consultant,
+                   :label => "ปรึกษาผู้เชี่ยวชาญ",
+                   :collection => User.where(:role => "expert"),
+                   :label_method => lambda { |u| u.fullname }
+       %>
     <% else %>
       <%= f.input :qa_status,
                   :as => :hidden,

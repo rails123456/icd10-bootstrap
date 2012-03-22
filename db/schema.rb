@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120321082839) do
     t.text     "qa_q"
     t.text     "qa_a"
     t.string   "qa_status"
+    t.integer  "qa_consultant"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

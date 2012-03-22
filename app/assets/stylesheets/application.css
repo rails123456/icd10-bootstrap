@@ -36,11 +36,11 @@ body { padding: 20px; }
 }
 
 .consulting {
-  color: yellow;
+  color: brown;
 }
 
 .answered {
-  color: lightgreen;
+  color: green;
 }
 
 .admin {
@@ -55,3 +55,7 @@ body { padding: 20px; }
   background-color: #00f;
 }
 
+#faq_faq_q #faq_faq_a {
+  width: 200;
+  height: 100;
+}

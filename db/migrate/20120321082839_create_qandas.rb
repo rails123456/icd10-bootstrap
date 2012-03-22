@@ -5,7 +5,7 @@ class CreateQandas < ActiveRecord::Migration
       t.text :qa_q
       t.text :qa_a
       t.string :qa_status
-
+      t.integer :qa_consultant
       t.timestamps
     end
   end

@@ -1,28 +1,16 @@
-<%= form_for @faq, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @faq, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> /Faq</legend>
 
-    <div class="control-group">
-      <%= f.label :faq_item, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :faq_item, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :faq_q, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :faq_q, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :faq_a, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :faq_a, :class => 'text_field' %>
-      </div>
-    </div>
-
+    <%= f.input :faq_item %>
+    <%= f.input :faq_q,
+                :as => :text,
+                :input_html => { :rows => 5, :style => "width:500px" }
+    %>
+    <%= f.input :faq_a,
+                :as => :text,
+                :input_html => { :rows => 5, :style => "width:500px" }
+    %>
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', faqs_path, :class => 'btn' %>

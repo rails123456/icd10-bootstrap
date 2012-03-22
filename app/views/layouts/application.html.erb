@@ -48,7 +48,8 @@
           <% end %>
           <li class="divider-vertical"></li>
           <form class="navbar-search" id="search">
-            <input type="text" id="q" class="search-query span3" placeholder="Search">
+            <input type="text" id="q" class="search-query span3"
+             placeholder="Search" values="<%= params[:q] %>">
           </form>
         </ul>
         <ul class="nav pull-right">

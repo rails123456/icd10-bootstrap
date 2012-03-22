@@ -1,23 +1,28 @@
-<h1>/Qanda</h1>
+<h1>Q&A</h1>
 
 <p>
-  <b>User</b><br>
-  <%= @qanda.user_id %>
+  <b>Email</b><br>
+  <%= @qanda.user.email %>
 </p>
 
 <p>
-  <b>Qa q</b><br>
+  <b>คำถาม</b><br>
   <%= @qanda.qa_q %>
 </p>
 
 <p>
-  <b>Qa a</b><br>
+  <b>คำตอบ</b><br>
   <%= @qanda.qa_a %>
 </p>
 
 <p>
-  <b>Qa status</b><br>
+  <b>สถานะ</b><br>
   <%= @qanda.qa_status %>
+</p>
+
+<p>
+  <b>Consultant</b><br>
+  <%= User.find(@qanda.qa_consultant).fullname %>
 </p>
 
 <div class="form-actions">
