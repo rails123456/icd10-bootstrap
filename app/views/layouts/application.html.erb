@@ -59,7 +59,7 @@
             <% else %>
               <li class="member">
             <% end %>
-              <%= link_to "ยินดีต้อนรับ #{current_user.fullname}", "#" %>
+              <%= link_to "#{current_user.fullname}", "#" %>
             </li>
             <!-- li class="divider-vertical"></li //-->
             <li><%= link_to "Logout", logout_path %></li>

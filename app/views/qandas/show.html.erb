@@ -22,7 +22,7 @@
 
 <p>
   <b>Consultant</b><br>
-  <%= User.find(@qanda.qa_consultant).fullname %>
+  <%= User.find(@qanda.qa_consultant).fullname if @qanda.qa_status == "consulting" %>
 </p>
 
 <div class="form-actions">

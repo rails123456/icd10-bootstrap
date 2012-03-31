@@ -2,7 +2,15 @@ class QandasController < ApplicationController
   # GET /qandas
   # GET /qandas.json
   def index
-    @qandas = Qanda.only_owner
+    if admin?
+      @qandas = Qanda.unanswered
+    elsif consultant?
+      @qandas = Qanda.where(:qa_consultant => @current_user.id).unanswered
+    elsif member?
+      @qandas = Qanda.where(:user_id => @current_user.id)
+    else
+      @qandas = Qanda.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

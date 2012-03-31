@@ -2,19 +2,28 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> &gt; Q&A</legend>
 
-    <%= f.association :user, 
-                      :label => "Email",
-                      :collection => User.find(current_user),
-                      :label_method => lambda { |u| "#{u.email}" },
-                      :selected => current_user.id,
-                      :readonly => true
+    <% if member? %>
+      <% owner_id = current_user.id %>
+      <% owner_email = current_user.email %>
+    <% else %>
+      <% owner_id = @qanda.user_id %>
+      <% owner_email = @qanda.user.email %>
+    <% end %>
+
+    <%= f.hidden_field :user_id,
+                       :value => owner_id
+    %>
+    <%= f.input "test", 
+                :label => "Email",
+                :input_html => {:value => owner_email},
+                :disabled => true
     %>
     <%= f.input :qa_q,
                 :label => "คำถาม",
                 :as => :text,
                 :input_html => { :rows => 5, :style => "width:500px" }
      %>
-     <% if current_user.role == 'admin' %>
+     <% if admin? or consultant? %>
        <%= f.input :qa_a,
                 :label => "คำตอบ",
                 :as => :text,
@@ -27,7 +36,7 @@
        %>
        <%= f.input :qa_consultant,
                    :label => "ปรึกษาผู้เชี่ยวชาญ",
-                   :collection => User.where(:role => "expert"),
+                   :collection => User.where(:role => "consultant"),
                    :label_method => lambda { |u| u.fullname }
        %>
     <% else %>

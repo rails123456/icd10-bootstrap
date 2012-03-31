@@ -5,7 +5,11 @@
   <%= f.input :prename, :label => "คำนำหน้า", :width => 20 %> <%= f.input :fname, :label => "ชื่อ" %>
   <%= f.input :lname, :label => "นามสกุล" %>
   <%= f.input :mobile, :label => "เบอร์มือถือ" %>
-  <%= f.select :role, ['member','expert', 'admin'] %>
+  <% if admin? %>
+    <%= f.select :role, ['member','consultant', 'admin'] %>
+  <% else %>
+    <%= f.hidden_field :role, :value => 'member' %>
+  <% end %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
 

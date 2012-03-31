@@ -7,11 +7,18 @@
     <%= f.input :fname %>
     <%= f.input :lname %>
     <%= f.input :mobile %>
-    <%= f.input :role,
+
+    <% if current_user %>
+      <%= f.input :role,
                 :as => :select,
                 :collection => ['member','consultant','admin'],
                 :label => 'สถานะ'
-    %>
+      %>
+    <% else %>
+      <%= f.hidden_field :role,
+                  :value => 'member'
+      %>
+    <% end %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
 

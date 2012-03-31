@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.page(params[:page]).order(:id)
+    @users = User.search(params[:q]).page(params[:page]).order(:id)
   end
 
   def new

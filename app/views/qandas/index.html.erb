@@ -16,15 +16,20 @@
     <% @qandas.each do |qanda| %>
       <tr class="<%= qanda.qa_status %>">
         <td><%= qanda.id %></td>
-        <td><%= link_to qanda.user.email, qanda_path(qanda) %></td>
+        <td><%= link_to qanda.user.email, qanda_path(qanda.id) %></td>
         <td><%= qanda.qa_q %></td>
         <% if current_user.role == 'admin' %>
           <td><%= qanda.qa_a %></td>
           <td><%= qanda.qa_status %></td>
         <% end %>
         <td>
-          <%= link_to 'Edit', edit_qanda_path(qanda), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', qanda_path(qanda), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <% if qanda.qa_status == 'answered' %>
+            <% faq_id = Faq.find_by_sql("SELECT id FROM faqs WHERE faq_q = '#{qanda.qa_q}'") %>
+            <%= link_to 'See FAQs', faq_path(faq_id), :class => 'btn btn-mini' %>
+          <% else %>
+            <%= link_to 'Edit', edit_qanda_path(qanda), :class => 'btn btn-mini' %>
+            <%= link_to 'Destroy', qanda_path(qanda), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <% end %>
         </td>
       </tr>
     <% end %>
