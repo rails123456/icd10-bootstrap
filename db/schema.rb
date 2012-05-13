@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321082839) do
+ActiveRecord::Schema.define(:version => 20120513074130) do
 
   create_table "blocks", :force => true do |t|
     t.integer "chapter_id"
@@ -31,9 +31,10 @@ ActiveRecord::Schema.define(:version => 20120321082839) do
   end
 
   create_table "faqs", :force => true do |t|
-    t.string "faq_item"
-    t.text   "faq_q"
-    t.text   "faq_a"
+    t.string  "faq_item"
+    t.text    "faq_q"
+    t.text    "faq_a"
+    t.integer "specialty_id"
   end
 
   create_table "qandas", :force => true do |t|
@@ -42,6 +43,14 @@ ActiveRecord::Schema.define(:version => 20120321082839) do
     t.text     "qa_a"
     t.string   "qa_status"
     t.integer  "qa_consultant"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "specialty_id"
+  end
+
+  create_table "specialties", :force => true do |t|
+    t.string   "sp_code"
+    t.string   "sp_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

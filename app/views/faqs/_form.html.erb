@@ -3,6 +3,11 @@
     <legend><%= controller.action_name.capitalize %> /Faq</legend>
 
     <%= f.input :faq_item %>
+    <%= f.association :specialty,
+                      :collection => Specialty.order(:id),
+                      :label_method => lambda { |b| "#{b.sp_code} : #{b.sp_name}" },
+                      :prompt => "Choose a Specialty"
+    %>
     <%= f.input :faq_q,
                 :as => :text,
                 :input_html => { :rows => 5, :style => "width:500px" }

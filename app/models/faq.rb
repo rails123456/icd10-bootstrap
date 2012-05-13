@@ -1,5 +1,6 @@
 class Faq < ActiveRecord::Base
-
+  belongs_to :specialty
+  
   def self.search(search)
     if search
       kw = search.split(/\!/)

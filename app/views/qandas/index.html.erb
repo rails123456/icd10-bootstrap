@@ -4,6 +4,7 @@
     <tr>
       <th>ID</th>
       <th>สมาชิก</th>
+      <th>สาขา</th>
       <th>คำถาม</th>
       <% if current_user.role == 'admin' %>
         <th>คำตอบ</th>
@@ -17,6 +18,7 @@
       <tr class="<%= qanda.qa_status %>">
         <td><%= qanda.id %></td>
         <td><%= link_to qanda.user.email, qanda_path(qanda.id) %></td>
+        <td><%= qanda.specialty.sp_name %></td>
         <td><%= qanda.qa_q %></td>
         <% if current_user.role == 'admin' %>
           <td><%= qanda.qa_a %></td>

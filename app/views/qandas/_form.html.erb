@@ -18,27 +18,32 @@
                 :input_html => {:value => owner_email},
                 :disabled => true
     %>
+    <%= f.association :specialty,
+                      :collection => Specialty.order(:id),
+                      :label_method => lambda { |b| "#{b.sp_code} : #{b.sp_name}" },
+                      :prompt => "Choose a Specialty"
+    %>
     <%= f.input :qa_q,
                 :label => "คำถาม",
                 :as => :text,
                 :input_html => { :rows => 5, :style => "width:500px" }
-     %>
-     <% if admin? or consultant? %>
-       <%= f.input :qa_a,
-                :label => "คำตอบ",
-                :as => :text,
-                :input_html => { :rows => 5, :style => "width:500px" }
-       %>
-       <%= f.input :qa_status,
-                   :as => :select,
-                   :collection => ['unassigned','consulting', 'answered'],
-                   :label => "สถานะ"
-       %>
-       <%= f.input :qa_consultant,
-                   :label => "ปรึกษาผู้เชี่ยวชาญ",
-                   :collection => User.where(:role => "consultant"),
-                   :label_method => lambda { |u| u.fullname }
-       %>
+    %> 
+    <% if admin? or consultant? %>
+      <%= f.input :qa_a,
+               :label => "คำตอบ",
+               :as => :text,
+               :input_html => { :rows => 5, :style => "width:500px" }
+      %>
+      <%= f.input :qa_status,
+                  :as => :select,
+                  :collection => ['unassigned','consulting', 'answered'],
+                  :label => "สถานะ"
+      %>
+      <%= f.input :qa_consultant,
+                  :label => "ปรึกษาผู้เชี่ยวชาญ",
+                  :collection => User.where(:role => "consultant"),
+                  :label_method => lambda { |u| u.fullname }
+      %>
     <% else %>
       <%= f.input :qa_status,
                   :as => :hidden,

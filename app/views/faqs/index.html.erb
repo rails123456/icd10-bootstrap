@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>ID</th>
+      <th>สาขา</th>
       <th>คำถาม</th>
       <th>คำตอบ</th>
       <% if admin? %>
@@ -17,6 +18,7 @@
     <% @faqs.each do |faq| %>
       <tr>
         <td><%= link_to faq.id, faq_path(faq) %></td>
+        <td><%= faq.specialty.sp_name %></td>
         <td><%= faq.faq_q %></td>
         <td><%= faq.faq_a %></td>
         <% if admin? %>

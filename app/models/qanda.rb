@@ -2,7 +2,8 @@ require 'net/http'
 
 class Qanda < ActiveRecord::Base
   belongs_to :user
-
+  belongs_to :specialty
+  
   after_update :send_sms
   after_update :insert_faqs
 
