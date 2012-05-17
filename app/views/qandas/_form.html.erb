@@ -2,13 +2,8 @@
   <fieldset>
     <legend><%= controller.action_name.capitalize %> &gt; Q&A</legend>
 
-    <% if member? %>
-      <% owner_id = current_user.id %>
-      <% owner_email = current_user.email %>
-    <% else %>
-      <% owner_id = @qanda.user_id %>
-      <% owner_email = @qanda.user.email %>
-    <% end %>
+    <% owner_id = current_user.id %>
+    <% owner_email = current_user.email %>
 
     <%= f.hidden_field :user_id,
                        :value => owner_id
