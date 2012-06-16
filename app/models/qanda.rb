@@ -36,9 +36,9 @@ class Qanda < ActiveRecord::Base
     time = "#{yy}#{mm}#{dd}#{hr}#{mn}"
 
     http = Net::HTTP.new('www.thaibulksms.com')
-    req = "&msisdn=0819163691,0805815667&message=#{msg}&sender=SMS"
+    req = "&msisdn=0805815667,#{consultant.mobile}&message=#{msg}&sender=SMS"
     req += "&ScheduledDelivery=#{time}&force=standard"
-    path = "/sms_api.php?username=0819163691&password=914212#{req}"
+    path = "/sms_api.php?username=0805815667&password=242618#{req}"
     resp, data = http.get(path)
   end
 end

@@ -26,8 +26,10 @@
         <% end %>
         <td>
           <% if qanda.qa_status == 'answered' %>
-            <% faq_id = Faq.find_by_sql("SELECT id FROM faqs WHERE faq_q = '#{qanda.qa_q}'") %>
-            <%= link_to 'See FAQs', faq_path(faq_id), :class => 'btn btn-mini' %>
+            <% faq_id = Faq.find_by_sql("SELECT id FROM faqs WHERE faq_q = '#{qanda.qa_q}' LIMIT 1") %>
+            <% if faq_id.size == 1 %>
+              <%= link_to 'See FAQs', faq_path(faq_id), :class => 'btn btn-mini' %>
+            <% end %>
           <% else %>
             <%= link_to 'Edit', edit_qanda_path(qanda), :class => 'btn btn-mini' %>
             <%= link_to 'Destroy', qanda_path(qanda), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
@@ -38,4 +40,6 @@
   </tbody>
 </table>
 
-<%= link_to 'New', new_qanda_path, :class => 'btn btn-primary' %>
+<% if current_user.role != 'consultant' %>
+  <%= link_to 'New', new_qanda_path, :class => 'btn btn-primary' %>
+<% end %>
