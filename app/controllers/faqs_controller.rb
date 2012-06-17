@@ -2,8 +2,12 @@ class FaqsController < ApplicationController
   # GET /faqs
   # GET /faqs.json
   def index
-    @faqs = Faq.search(params[:q]).page(params[:page]).per(5).order("id DESC")
-
+    if params[:specialty_id]
+      @faqs = Faq.where(["specialty_id=?", params[:specialty_id]]).page(params[:page]).per(5).order("id DESC")
+    else
+      @faqs = Faq.search(params[:q]).page(params[:page]).per(5).order("id DESC")
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @faqs }

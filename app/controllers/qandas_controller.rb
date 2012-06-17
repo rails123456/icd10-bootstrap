@@ -33,6 +33,9 @@ class QandasController < ApplicationController
   # GET /qandas/new.json
   def new
     @qanda = Qanda.new
+    if params[:specialty_id]
+      @qanda.specialty_id = params[:specialty_id]
+    end
 
     respond_to do |format|
       format.html # new.html.erb

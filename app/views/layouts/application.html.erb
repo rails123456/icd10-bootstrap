@@ -19,7 +19,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">ICD10Forum</a>
+      <a class="brand" href="/">ICD10Forum</a>
       <div class="nav-collapse">
         <ul class="nav">
           <% if current_user %>
@@ -31,7 +31,19 @@
             <li><%= link_to "Q&A", qandas_path %></li>
           <% end %>
           <li class="divider-vertical"></li>
-          <li><%= link_to "FAQs", faqs_path %></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              FAQs
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "อายุรศาสตร์", "/faqs?specialty_id=1" %></li>
+              <li><%= link_to "ศัลยกรรม", "/faqs?specialty_id=3" %></li>
+              <li><%= link_to "สูตินรีเวชกรรม", "/faqs?specialty_id=2" %></li>
+              <li><%= link_to "อื่นๆ...", "/faqs?specialty_id=4" %></li>
+            </ul>
+          </li>          
+
           <% if current_user && !admin? %>
             <li class="divider-vertical"></li>
             <li class="dropdown">
@@ -83,33 +95,8 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="span9">
+    <div class="span12">
       <%= yield %>
-    </div>
-    <div class="span3 center">
-      <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-          <li class="nav-header">Our Visitors</li>
-        </ul>
-        <script type="text/javascript" src="http://jg.revolvermaps.com/r.js"></script>
-        <script type="text/javascript">rm_f1st('8','150','true','false','000000',
-          '6ll3l29icx4','true','ff0000');
-        </script>
-        <noscript>
-          <applet codebase="http://rg.revolvermaps.com/j" code="core.RE" width="150" height="150" archive="g.jar">
-          <param name="cabbase" value="g.cab" />
-          <param name="r" value="true" />
-          <param name="n" value="false" />
-          <param name="i" value="6ll3l29icx4" />
-          <param name="m" value="8" />
-          <param name="s" value="150" />
-          <param name="c" value="ff0000" />
-          <param name="v" value="true" />
-          <param name="b" value="000000" />
-          <param name="rfc" value="true" />
-          </applet>
-        </noscript>
-      </div>
     </div>
   </div>
 </body>

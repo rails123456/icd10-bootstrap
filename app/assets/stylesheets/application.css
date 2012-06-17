@@ -63,3 +63,19 @@ body { padding: 20px; }
 .center {
   text-align: center;
 }
+
+.image-3 {
+  height: 127px;
+  width: 770px;
+  background: url(assets/3.png);
+}
+
+.nav-link {
+  float: right;
+  padding:5px 10px 0px 0px;
+  text-decoration: none;
+}
+A:link {text-decoration: none}
+A:visited {text-decoration: none}
+A:active {text-decoration: none}
+A:hover {text-decoration: underline overline; color: red;}

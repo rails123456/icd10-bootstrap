@@ -1,6 +1,8 @@
 class Faq < ActiveRecord::Base
   belongs_to :specialty
   
+  scope :med, lambda{ where("specialty_id=1") }
+  
   def self.search(search)
     if search
       kw = search.split(/\!/)
