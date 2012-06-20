@@ -1,25 +1,26 @@
-<h1>Listing specialties</h1>
-
-<table>
-  <tr>
-    <th>Sp code</th>
-    <th>Sp name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @specialties.each do |specialty| %>
-  <tr>
-    <td><%= specialty.sp_code %></td>
-    <td><%= specialty.sp_name %></td>
-    <td><%= link_to 'Show', specialty %></td>
-    <td><%= link_to 'Edit', edit_specialty_path(specialty) %></td>
-    <td><%= link_to 'Destroy', specialty, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<h1>Specialtys</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Sp code</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @specialties.each do |specialty| %>
+      <tr>
+        <td><%= specialty.id %></td>
+        <td><%= link_to specialty.sp_code, specialty_path(specialty) %></td>
+        <td><%= specialty.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_specialty_path(specialty), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', specialty_path(specialty), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Specialty', new_specialty_path %>
+<%= link_to 'New', new_specialty_path, :class => 'btn btn-primary' %>

@@ -15,14 +15,17 @@ class Qanda < ActiveRecord::Base
     item = owner
     q = self.qa_q
     a = self.qa_a
+    s = self.specialty_id
     o = Faq.new
-    o.attributes = {:faq_item => item, :faq_q => q, :faq_a => a}
+    o.attributes = {:faq_item => item, :faq_q => q, :faq_a => a, :specialty_id => s}
     id = o.save
   end
 
   def send_sms
+    //Send sms once per day at 19:00 pm
     return if self.qa_status != 'consulting'
 
+=begin
     consultant = User.find(self.qa_consultant)
 
     msg = "New ICD Question has just arrived <ICD10forum>"
@@ -41,4 +44,6 @@ class Qanda < ActiveRecord::Base
     path = "/sms_api.php?username=0805815667&password=242618#{req}"
     resp, data = http.get(path)
   end
+=end
+
 end

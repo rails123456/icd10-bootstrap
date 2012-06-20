@@ -1,15 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h1>/Specialty</h1>
 
 <p>
-  <b>Sp code:</b>
+  <b>Sp code</b><br>
   <%= @specialty.sp_code %>
 </p>
 
 <p>
-  <b>Sp name:</b>
+  <b>Sp name</b><br>
   <%= @specialty.sp_name %>
 </p>
 
+<p>
+  <b>User</b><br>
+  <%= @specialty.user_id %>
+</p>
 
-<%= link_to 'Edit', edit_specialty_path(@specialty) %> |
-<%= link_to 'Back', specialties_path %>
+<div class="form-actions">
+  <%= link_to 'Back', specialties_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_specialty_path(@specialty), :class => 'btn' %>
+  <%= link_to 'Delete', specialty_path(@specialty), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

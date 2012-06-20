@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :qandas
-
+  has_many :specialties
+  
   attr_accessible :email, :prename, :fname, :lname, :mobile, :role, :password, :password_confirmation
 
   validates_uniqueness_of :email

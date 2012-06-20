@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513074130) do
+ActiveRecord::Schema.define(:version => 20120620014733) do
 
   create_table "blocks", :force => true do |t|
     t.integer "chapter_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20120513074130) do
     t.string   "sp_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
