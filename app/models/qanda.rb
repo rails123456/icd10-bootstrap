@@ -22,28 +22,25 @@ class Qanda < ActiveRecord::Base
   end
 
   def send_sms
-    //Send sms once per day at 19:00 pm
+    #Send sms once per day at 19:00 pm
+
     return if self.qa_status != 'consulting'
 
-=begin
-    consultant = User.find(self.qa_consultant)
+    #consultant = User.find(self.qa_consultant)
+    #msg = "New ICD Question has just arrived <ICD10forum>"
+    #msg = msg.gsub(/\ /,'+')
+    #t = Time.now
+    #yy = t.year - 2000
+    #mm = sprintf("%02d", t.mon)
+    #dd = sprintf("%02d", t.day)
+    #hr = sprintf("%02d", t.hour)
+    #mn = sprintf("%02d", t.min)
+    #time = "#{yy}#{mm}#{dd}#{hr}#{mn}"
 
-    msg = "New ICD Question has just arrived <ICD10forum>"
-    msg = msg.gsub(/\ /,'+')
-    t = Time.now
-    yy = t.year - 2000
-    mm = sprintf("%02d", t.mon)
-    dd = sprintf("%02d", t.day)
-    hr = sprintf("%02d", t.hour)
-    mn = sprintf("%02d", t.min)
-    time = "#{yy}#{mm}#{dd}#{hr}#{mn}"
-
-    http = Net::HTTP.new('www.thaibulksms.com')
-    req = "&msisdn=0805815667,#{consultant.mobile}&message=#{msg}&sender=SMS"
-    req += "&ScheduledDelivery=#{time}&force=standard"
-    path = "/sms_api.php?username=0805815667&password=242618#{req}"
-    resp, data = http.get(path)
+    #http = Net::HTTP.new('www.thaibulksms.com')
+    #req = "&msisdn=0805815667,#{consultant.mobile}&message=#{msg}&sender=SMS"
+    #req += "&ScheduledDelivery=#{time}&force=standard"
+    #path = "/sms_api.php?username=0805815667&password=242618#{req}"
+    #resp, data = http.get(path)
   end
-=end
-
 end
