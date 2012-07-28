@@ -6,7 +6,10 @@
  *= require_tree . 
 */
 
-body { padding: 20px; }
+body { 
+  padding: 20px;
+  width: 892px;
+}
   
 .navbar-search {
     position: relative;
@@ -66,7 +69,7 @@ body { padding: 20px; }
 
 .image-3 {
   height: 127px;
-  width: 770px;
+  width: 892px;
   background: url(assets/header_forum.jpg);
 }
 

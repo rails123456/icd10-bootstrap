@@ -3,15 +3,15 @@ class QandasController < ApplicationController
   # GET /qandas.json
   def index
     if admin?
-      @qandas = Qanda.unanswered
+      @qandas = Qanda.unanswered.page(params[:page]).per(5).order("id DESC")
     elsif consultant?
       @qandas = Qanda.where(:qa_consultant => @current_user.id).unanswered
     elsif member?
-      @qandas = Qanda.where(:user_id => @current_user.id)
+      @qandas = Qanda.where(:user_id => @current_user.id).page(params[:page])
     else
-      @qandas = Qanda.all
+      @qandas = Qanda.all.page(params[:page])
     end
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @qandas }

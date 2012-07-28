@@ -24,9 +24,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
-      if user.role == 'admin'
+      if @user.role == 'admin'
         url = users_path
-      elsif user.role == 'consult'
+      elsif @user.role == 'consult'
         url = qandas_path
       else
         url = root_url
