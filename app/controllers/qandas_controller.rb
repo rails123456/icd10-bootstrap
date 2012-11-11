@@ -5,7 +5,7 @@ class QandasController < ApplicationController
     if admin?
       @qandas = Qanda.unanswered.page(params[:page]).per(5).order("id DESC")
     elsif consultant?
-      @qandas = Qanda.where(:qa_consultant => @current_user.id).unanswered
+      @qandas = Qanda.where(:qa_consultant => @current_user.id).unanswered.page(params[:page])
     elsif member?
       @qandas = Qanda.where(:user_id => @current_user.id).page(params[:page])
     else
