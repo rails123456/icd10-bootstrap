@@ -1,4 +1,9 @@
-<h1>Frequently Asked Questions (FAQs)</h1>
+<h1>คำถามที่พบบ่อย (FAQs)</h1>
+<h4>
+  <font color='white' style='background-color:yellow'>
+    <%= link_to 'ถามคำถามใหม่', new_faq_path %>
+  </font>
+</h4>
 
 <%= paginate @faqs %>
 <p>
@@ -19,8 +24,16 @@
       <tr>
         <td><%= link_to faq.id, faq_path(faq) %></td>
         <td><%= faq.specialty.sp_name %></td>
-        <td><%= faq.faq_q %></td>
-        <td><%= faq.faq_a %></td>
+        <% if params[:q] %>
+          <td><%= raw hili(faq.faq_q,params[:q]) %></td>
+        <% else %>
+          <td><%= faq.faq_q %></td>
+        <% end %>
+        <% if params[:q] %>
+          <td><%= raw hili(faq.faq_a,params[:q]) %></td>
+        <% else %>
+          <td><%= faq.faq_a %></td>
+        <% end %>
         <% if admin? %>
           <td>
           <%= link_to 'Edit', edit_faq_path(faq), :class => 'btn btn-mini' %>
