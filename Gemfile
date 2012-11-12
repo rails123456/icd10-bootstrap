@@ -13,7 +13,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'mongrel'
+gem 'thin'
 gem 'kaminari'
 gem 'simple_form'
 gem 'yaml_db'
