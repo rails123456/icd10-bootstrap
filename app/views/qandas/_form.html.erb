@@ -17,7 +17,7 @@
                       :collection => Specialty.order(:id),
                       :label => 'สาขาเฉพาะทาง',
                       :label_method => lambda { |b| "#{b.sp_code} : #{b.sp_name}" },
-                      :prompt => "Choose a Specialty"
+                      :prompt => "กรุณาเลือก..."
     %>
     <%= f.input :qa_q,
                 :label => "คำถาม",
@@ -51,6 +51,8 @@
       <%= f.submit 'บันทึกข้อมูล', :class => 'btn btn-primary' %>
       <%= link_to 'ยกเลิก', qandas_path, :class => 'btn' %>
     </div>
-    <div class='alert alert-info'>ระบบจะทำการแจ้งเตือน SMS ไปยังผู้เชี่ยวชาญ กรณีเลือก consulting</div>
+    <% if current_user.role == 'admin' %>
+      <div class='alert alert-info'>ระบบจะทำการแจ้งเตือน email ไปยังผู้เชี่ยวชาญ กรณีเลือก consulting</div>
+    <% end %>
   </fieldset>
 <% end %>

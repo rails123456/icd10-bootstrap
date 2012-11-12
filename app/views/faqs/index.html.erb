@@ -1,7 +1,7 @@
 <h1>คำถามที่พบบ่อย (FAQs)</h1>
 <h4>
   <font color='white' style='background-color:yellow'>
-    <%= link_to 'ถามคำถามใหม่', new_faq_path %>
+    <%= link_to 'ถามคำถามใหม่', new_qanda_path %>
   </font>
 </h4>
 
@@ -10,10 +10,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>สาขา</th>
-      <th>คำถาม</th>
-      <th>คำตอบ</th>
+      <th width='5%'>ID</th>
+      <th width='10%'>สาขา</th>
+      <th width='50%'>คำถาม</th>
+      <th width='35%'>คำตอบ</th>
       <% if admin? %>
         <th>Action</th>
       <% end %>
