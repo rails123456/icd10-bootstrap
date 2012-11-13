@@ -15,7 +15,6 @@ Icd10forum::Application.routes.draw do
   resources :blocks
   resources :chapters
 
-  match 'login/consultant/:id' => 'sessions#consultant'
-
+  match 'qandas/consultabt/:id' => 
   root :to => 'welcome#index'
 end

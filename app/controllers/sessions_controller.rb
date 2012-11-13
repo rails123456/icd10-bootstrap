@@ -2,6 +2,18 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def consultant
+    user = User.find(params[:id])
+    if (user.role == 'consultant')
+      session[:user_id] = user.id
+      url = qandas_path
+      redirect_to url, :notice => "Logged in successfully!"
+    else
+      flash.now.alert = "Unregistered consultant!"
+      render "new"
+    end
+  end
+
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])

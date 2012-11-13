@@ -9,7 +9,7 @@ class QandasController < ApplicationController
     elsif member?
       @qandas = Qanda.where(:user_id => @current_user.id).page(params[:page])
     else
-      @qandas = Qanda.all.page(params[:page])
+      @qandas = Qanda.page(params[:page])
     end
     
     respond_to do |format|
@@ -71,6 +71,11 @@ class QandasController < ApplicationController
 
     respond_to do |format|
       if @qanda.update_attributes(params[:qanda])
+        if (@qanda.qa_status == "consulting") 
+          # Send email alert to respective consultant
+          user = User.find(@qanda.qa_consultant)
+          UserMailer.consultant_reminder(user).deliver
+        end
         format.html { redirect_to @qanda, :notice => 'Qanda was successfully updated.' }
         format.json { head :ok }
       else
