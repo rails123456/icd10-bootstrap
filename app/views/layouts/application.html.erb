@@ -10,6 +10,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
@@ -88,7 +89,7 @@
     </div>
   </div>
 </div>
-
+<div>
 <div class="container">
   <% flash.each do |name, msg| %>
     <div class="alert alert-<%= name == :notice ? 'success' : 'error' %>">
@@ -96,11 +97,9 @@
       <%= msg %>
     </div>
   <% end %>
-  <div class="row">
-    <div class="span12">
-      <%= yield %>
-    </div>
-  </div>
+  <%= yield %>
+</div>
+</div>
 </body>
 </html>
 

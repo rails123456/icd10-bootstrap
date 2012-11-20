@@ -8,7 +8,7 @@
 
 body { 
   padding: 20px;
-  width: 892px;
+  width: 1170px !important;
 }
   
 .navbar-search {
@@ -82,3 +82,7 @@ A:link {text-decoration: none}
 A:visited {text-decoration: none}
 A:active {text-decoration: none}
 A:hover {text-decoration: underline overline; color: red;}
+
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+  width:1170px !important; margin-left: 20px !important; margin-right: 20px !important;
+}
