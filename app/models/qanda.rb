@@ -6,6 +6,7 @@ class Qanda < ActiveRecord::Base
   
   after_update :send_sms
   after_update :insert_faqs
+  after_create :insert_faqs
 
   scope :unanswered, where("qa_status != 'answered'")
 

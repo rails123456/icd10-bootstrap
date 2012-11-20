@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
     def consultant?
       if current_user
-       true if current_user.role == 'consultant'
+       true if current_user.role == 'consultant' or current_user == 'admin'
       else
        false
       end
